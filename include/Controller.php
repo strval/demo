@@ -24,6 +24,8 @@ class Controller
 		if (!$reflectionObject->getMethod($action)->isPublic()) {
 			$this->_notFound();
 		}
+		// 执行相应方法
+		$this->$action();
 	}
 
 	// 404

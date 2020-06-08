@@ -6,35 +6,35 @@
 class Tool
 {
     // 弹窗关闭
-    public static function alertClose($_info)
+    public static function alertClose($info)
     {
-        exit("<script type='text/javascript'>alert('$_info');close();</script>");
+        exit("<script type='text/javascript'>alert('$info');close();</script>");
     }
 
     // 弹窗返回
-    public static function alertBack($_info)
+    public static function alertBack($info)
     {
-        exit("<script type='text/javascript'>alert('$_info');history.back();</script>");
+        exit("<script type='text/javascript'>alert('$info');history.back();</script>");
     }
 
     // 弹窗跳转
-    public static function alertLocation($_info, $_url)
+    public static function alertLocation($info, $url)
     {
         if (!empty($_info)) {
-            exit("<script type='text/javascript'>alert('$_info');location.href='$_url';</script>");
+            exit("<script type='text/javascript'>alert('$info');location.href='$url';</script>");
         } else {
-            header("Location: $_url");
+            header("Location: $url");
             die;
         }
     }
 
     // 字符串截取
-    public static function subStr($_value, $_length,$_encoding)
+    public static function subStr($value, $length, $encoding)
     {
-        if (mb_strlen($_value, $_encoding) > $_length) {
-            return mb_substr($_value, 0, $_length, $_encoding) . '...';
+        if (mb_strlen($value, $encoding) > $length) {
+            return mb_substr($value, 0, $length, $encoding) . '...';
         } else {
-            return mb_substr($_value, 0, $_length, $_encoding);
+            return $value;
         }
     }
 }

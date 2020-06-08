@@ -7,7 +7,7 @@
 class View
 {
 	// 变量池
-	private static $data;
+	private static $data = [];
 	// 模板路径
 	private static $filePath;
 
@@ -24,10 +24,11 @@ class View
 	// 载入模板
 	public static function fetch($filePath)
 	{
-		self::$filePath = TPL_DIR . '/' . $fileRelativePath;
-		if (file_exists($self::$filePath)) {
+		self::$filePath = TPL_DIR . '/' . $filePath;
+		unset($filePath);
+		if (file_exists(self::$filePath)) {
 			extract(self::$data);
-			require($filePath);
+			require(self::$filePath);
 		} else {
 			die('Missing TPL File');
 		}

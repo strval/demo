@@ -8,11 +8,11 @@ class Captcha
 {
     private $charset = 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ23456789';    // 随机因子
     private $code;                                                                  // 验证码
-    private $codeLen;                                                               // 长度
+    private $codeLen;                                                               // 验证码长度
     private $width;                                                                 // 宽
     private $height;                                                                // 高
-    private $img;                                                                   // 图片句柄
-    private $font;                                                                  // 字体
+    private $img;                                                                   // 图像句柄
+    private $font;                                                                  // 字体路径
     private $fontSize;                                                              // 字体大小
     private $fontColor;                                                             // 字体颜色
 
@@ -40,7 +40,7 @@ class Captcha
         return $this->code;
     }
 
-    // 生成线条 雪花
+    // 生成线条,雪花
     private function createLine()
     {
         for ($i = 0; $i < 6; $i++) {
